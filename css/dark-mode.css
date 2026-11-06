@@ -1,0 +1,297 @@
+/* ==========================================================================
+   Night VFX Studios - Dark mode overrides
+   Load AFTER css/style.css. Does not modify any existing stylesheet.
+   Accent/brand colours are intentionally left as defined in style.css.
+   To tune the look, only edit the variables in :root below.
+   ========================================================================== */
+
+:root {
+  --dm-bg:          #0d0f14;   /* page background            */
+  --dm-bg-alt:      #14171e;   /* alternate sections/footer  */
+  --dm-surface:     #1a1e27;   /* cards, modal, menus        */
+  --dm-border:      #2a2f3a;
+  --dm-text:        #c9ced8;   /* body text                  */
+  --dm-text-strong: #f2f4f8;   /* headings                   */
+  --dm-text-muted:  #8b93a3;
+  --dm-bg-rgb:      13, 15, 20; /* same as --dm-bg, for wave alpha */
+  --dm-accent:      #f47c20;   /* hover fill for buttons (matches orange bar) */
+  --dm-btn-border:  #5a6272;   /* outline button border */
+  color-scheme: dark;
+}
+
+/* ---------- Base ---------- */
+html,
+body {
+  background-color: var(--dm-bg) !important;
+  color: var(--dm-text);
+}
+
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.open-title,
+.title-strong,
+.sub-services,
+.list-title,
+.team-title,
+.foot-box h4 {
+  color: var(--dm-text-strong);
+}
+
+p,
+.about,
+.strong,
+.open-text,
+.open-text-1,
+.tab-pane p,
+.footer p {
+  color: var(--dm-text);
+}
+
+a.special-link,
+.footer a {
+  color: var(--dm-text-strong);
+}
+
+/* Contact section links (phone / email) - beat the more specific rules in style.css */
+body .foot-box .open-text-1 a,
+body .foot-box a.special-link,
+body .open-text-1 a,
+body a.special-link,
+body a.special-link:visited {
+  color: var(--dm-text) !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+body .foot-box .open-text-1 a:hover,
+body .foot-box .open-text-1 a:focus,
+body a.special-link:hover,
+body a.special-link:focus {
+  color: var(--dm-text-strong) !important;
+  text-decoration: underline;
+}
+
+hr { border-color: var(--dm-border); }
+
+/* ---------- Sections ---------- */
+.content,
+.content-1,
+#about,
+#services,
+#team,
+#contact {
+  background-color: var(--dm-bg);
+}
+
+.grey-bg,
+.footer {
+  background-color: var(--dm-bg-alt) !important;
+  border-color: var(--dm-border);
+}
+
+/* ---------- Header / sticky menu ---------- */
+.header,
+.header.for-sticky,
+.is-sticky .header,
+#sticky-wrapper .header {
+  background-color: rgba(var(--dm-bg-rgb), 0.92) !important;
+  border-bottom: 1px solid var(--dm-border);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.navigation li a,
+.social-top li a,
+.menu-btn {
+  color: var(--dm-text);
+}
+
+.navigation li a:hover,
+.social-top li a:hover {
+  color: var(--dm-text-strong);
+}
+
+.mobile-menu,
+.nav-collapse {
+  background-color: var(--dm-surface);
+  border-color: var(--dm-border);
+}
+
+.mobile-menu li a { color: var(--dm-text); }
+
+/* Logo: swapped via images/logo-dark.png (see css/theme-toggle.css) */
+
+/* ---------- Hero waves (blend into dark page) ---------- */
+.waves use:nth-child(1) { fill: rgba(var(--dm-bg-rgb), 0.7); }
+.waves use:nth-child(2) { fill: rgba(var(--dm-bg-rgb), 0.5); }
+.waves use:nth-child(3) { fill: rgba(var(--dm-bg-rgb), 0.3); }
+.waves use:nth-child(4) { fill: var(--dm-bg); }
+
+/* ---------- Images ---------- */
+.box-image img,
+.team-box img,
+.services-box,
+.image-comparison__image,
+#contact img {
+  border-color: var(--dm-border);
+}
+
+img { filter: brightness(0.92); }          /* soften bright photos slightly */
+.logo img,
+.image-comparison__image { filter: none; } /* leave logo and before/after untouched */
+
+/* ---------- Before / After sliders ---------- */
+.image-comparison__caption-body {
+  background-color: rgba(var(--dm-bg-rgb), 0.85);
+  color: var(--dm-text-strong);
+}
+
+/* ---------- Team tabs ---------- */
+.nav-team .team-col,
+.team-box {
+  background-color: transparent;
+}
+
+.team-nav span {
+  color: var(--dm-text-strong);
+}
+
+/* ---------- Counters / parallax bands keep their image, darken mask ---------- */
+.bg-mask,
+.bg-mask-1 {
+  background-color: rgba(var(--dm-bg-rgb), 0.78);
+}
+
+.bg .para-title,
+.bg .list-title,
+.bg .open-text-2 a {
+  color: #fff;
+}
+
+/* ---------- Buttons / links (text only; accent colours untouched) ---------- */
+/* Outline buttons on dark surfaces: About "View Services", team "Get in Touch",
+   careers modal "Apply Now", contact button, pricing/view-more, bootstrap default */
+body .go-btn,
+body a.go-btn,
+body .slider-link-2,
+body a.slider-link-2,
+body .contact-btn,
+body a.contact-btn,
+body .view-more,
+body a.view-more,
+body .btn-default {
+  color: var(--dm-text-strong) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--dm-btn-border) !important;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+body .go-btn i,
+body .slider-link-2 i,
+body .contact-btn i,
+body .view-more i {
+  color: inherit !important;
+}
+
+body .go-btn:hover,
+body .go-btn:focus,
+body .slider-link-2:hover,
+body .slider-link-2:focus,
+body .contact-btn:hover,
+body .contact-btn:focus,
+body .view-more:hover,
+body .view-more:focus,
+body .btn-default:hover,
+body .btn-default:focus {
+  color: #fff !important;
+  background-color: var(--dm-accent) !important;
+  border-color: var(--dm-accent) !important;
+}
+
+/* Buttons that sit on photos/parallax bands (hero "View More", "Apply Now") */
+body .slider-link,
+body a.slider-link,
+body .slider-link-1,
+body button.slider-link-1 {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.75) !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+body .slider-link i,
+body .slider-link-1 i {
+  color: inherit !important;
+}
+
+body .slider-link:hover,
+body .slider-link:focus,
+body .slider-link-1:hover,
+body .slider-link-1:focus {
+  color: #fff !important;
+  background-color: var(--dm-accent) !important;
+  border-color: var(--dm-accent) !important;
+}
+
+/* Portfolio filter / tab-style links */
+body .port-filter li a {
+  color: var(--dm-text) !important;
+}
+body .port-filter li a.active,
+body .port-filter li a:hover {
+  color: var(--dm-text-strong) !important;
+}
+
+/* ---------- Careers modal (Bootstrap 3) ---------- */
+.modal-content {
+  background-color: var(--dm-surface);
+  color: var(--dm-text);
+  border: 1px solid var(--dm-border);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+}
+
+.modal-header,
+.modal-footer {
+  border-color: var(--dm-border);
+}
+
+.modal-title { color: var(--dm-text-strong); }
+
+.modal-body p { color: var(--dm-text); }
+
+.close {
+  color: var(--dm-text-strong);
+  text-shadow: none;
+  opacity: 0.7;
+}
+.close:hover,
+.close:focus { color: #fff; opacity: 1; }
+
+.modal-backdrop.in { opacity: 0.8; }
+
+/* ---------- Contact section ---------- */
+.foot-box h4 { border-color: var(--dm-border); }
+
+.social-icon-list li a {
+  color: var(--dm-text);
+  border-color: var(--dm-border);
+}
+
+/* ---------- Form fields (in case the contact form is re-enabled) ---------- */
+input,
+textarea,
+select {
+  background-color: var(--dm-surface);
+  color: var(--dm-text-strong);
+  border-color: var(--dm-border);
+}
+input::placeholder,
+textarea::placeholder { color: var(--dm-text-muted); }
+
+/* ---------- Magnific Popup (Show Reel) ---------- */
+.mfp-bg { background: #000; opacity: 0.9; }
+.mfp-close { color: #fff; }
+
+/* ---------- Scrollbar ---------- */
+html { scrollbar-color: #3a4050 var(--dm-bg); }
+::-webkit-scrollbar { width: 10px; background: var(--dm-bg); }
+::-webkit-scrollbar-thumb { background: #3a4050; border-radius: 6px; }

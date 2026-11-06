@@ -1,0 +1,31 @@
+/* Theme toggle (light/dark) - always loaded, theme-independent.
+   The button is an <a> inside .social-top, so it inherits the exact
+   size/spacing/colour of the existing social icons from style.css. */
+.social-top li .theme-toggle {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.social-top li .theme-toggle .fa {
+  transition: transform 0.35s ease, opacity 0.25s ease;
+}
+
+.social-top li .theme-toggle:hover .fa {
+  transform: rotate(20deg);
+}
+
+/* Dark active -> show sun (click to go light). Light active -> show moon. */
+html[data-theme="dark"]  .theme-toggle .icon-moon { display: none; }
+html[data-theme="light"] .theme-toggle .icon-sun  { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .social-top li .theme-toggle .fa { transition: none; }
+}
+
+/* Logo swap: dark is the default (also when JS is off, since dark-mode.css
+   is loaded by default); light theme shows the original logo. */
+.logo .logo-light { display: none; }
+.logo .logo-dark  { display: inline-block; }
+
+html[data-theme="light"] .logo .logo-light { display: inline-block; }
+html[data-theme="light"] .logo .logo-dark  { display: none; }
