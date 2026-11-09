@@ -120,11 +120,20 @@ hr { border-color: var(--dm-border); }
 
 /* Logo: swapped via images/logo-dark.png (see css/theme-toggle.css) */
 
-/* ---------- Hero waves (blend into dark page) ---------- */
-.waves use:nth-child(1) { fill: rgba(var(--dm-bg-rgb), 0.7); }
-.waves use:nth-child(2) { fill: rgba(var(--dm-bg-rgb), 0.5); }
-.waves use:nth-child(3) { fill: rgba(var(--dm-bg-rgb), 0.3); }
-.waves use:nth-child(4) { fill: var(--dm-bg); }
+/* ---------- Hero waves ----------
+   The three back layers are light translucent tints so the ripples stand out
+   against the dark hero image; the front layer is solid and matches the page
+   background, so the hero flows seamlessly into the next section. */
+:root {
+  --dm-wave-1: rgba(170, 185, 210, 0.34);
+  --dm-wave-2: rgba(170, 185, 210, 0.22);
+  --dm-wave-3: rgba(170, 185, 210, 0.12);
+}
+
+svg.waves .parallax > use:nth-child(1) { fill: var(--dm-wave-1) !important; }
+svg.waves .parallax > use:nth-child(2) { fill: var(--dm-wave-2) !important; }
+svg.waves .parallax > use:nth-child(3) { fill: var(--dm-wave-3) !important; }
+svg.waves .parallax > use:nth-child(4) { fill: var(--dm-bg)     !important; }
 
 /* ---------- Images ---------- */
 .box-image img,
