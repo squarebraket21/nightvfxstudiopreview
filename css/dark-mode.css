@@ -14,7 +14,7 @@
   --dm-text-strong: #f2f4f8;   /* headings                   */
   --dm-text-muted:  #8b93a3;
   --dm-bg-rgb:      13, 15, 20; /* same as --dm-bg, for wave alpha */
-  --dm-accent:      #f47c20;   /* hover fill for buttons (matches orange bar) */
+  --dm-accent:      #f58021;   /* brand orange: button hover fill */
   --dm-btn-border:  #5a6272;   /* outline button border */
   color-scheme: dark;
 }
@@ -121,13 +121,13 @@ hr { border-color: var(--dm-border); }
 /* Logo: swapped via images/logo-dark.png (see css/theme-toggle.css) */
 
 /* ---------- Hero waves ----------
-   The three back layers are light translucent tints so the ripples stand out
-   against the dark hero image; the front layer is solid and matches the page
+   The three back layers are translucent brand orange (#f58021) so the ripples
+   stand out against the dark hero image; the front layer is solid and matches the page
    background, so the hero flows seamlessly into the next section. */
 :root {
-  --dm-wave-1: rgba(170, 185, 210, 0.34);
-  --dm-wave-2: rgba(170, 185, 210, 0.22);
-  --dm-wave-3: rgba(170, 185, 210, 0.12);
+  --dm-wave-1: rgba(245, 128, 33, 0.55);   /* #f58021 */
+  --dm-wave-2: rgba(245, 128, 33, 0.35);
+  --dm-wave-3: rgba(245, 128, 33, 0.18);
 }
 
 svg.waves .parallax > use:nth-child(1) { fill: var(--dm-wave-1) !important; }
